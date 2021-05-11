@@ -22,17 +22,17 @@ class HomeView: UIView {
     var tabsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
-        //        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        //左右cell的間隔
         layout.minimumInteritemSpacing = 1
-        //        layout.itemSize = CGSize(width: 100, height: 30)
+        
         layout.scrollDirection = .vertical
         
-        var CV = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        var cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
+        cv.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        cv.register(TabsCollectionViewCell.self, forCellWithReuseIdentifier: TabsCollectionViewCell.cellKey)
         
-        CV.register(TabsCollectionViewCell.self, forCellWithReuseIdentifier: TabsCollectionViewCell.cellKey)
-        
-        return CV
+        return cv
     }()
     
     var bottomView: UIView = {
@@ -51,8 +51,6 @@ class HomeView: UIView {
         
         tabsCollectionView.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom)
-//            make.left.equalTo(self).offset(10)
-//            make.right.equalTo(self).offset(-10)
             make.left.right.equalTo(self)
             make.height.equalTo(50)
         }

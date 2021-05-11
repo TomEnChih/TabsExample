@@ -18,7 +18,7 @@ class TabsCollectionViewCell: UICollectionViewCell {
     let pageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 25)
         label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         return label
     }()
@@ -32,14 +32,14 @@ class TabsCollectionViewCell: UICollectionViewCell {
     
     func constraints() {
         pageLabel.snp.makeConstraints { (make) in
-            make.right.left.lessThanOrEqualTo(self)
+            make.right.left.equalTo(self)
             make.top.bottom.equalTo(self)
         }
         
         displayTheCurrentPageView.snp.makeConstraints { (make) in
             make.top.equalTo(pageLabel.snp.bottom)
             make.right.left.equalTo(pageLabel)
-            make.height.equalTo(5)
+            make.height.equalTo(4)
         }
     }
     // MARK: - Init
@@ -59,7 +59,7 @@ class TabsCollectionViewCell: UICollectionViewCell {
         didSet {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.3) {
-                    self.displayTheCurrentPageView.backgroundColor = self.isSelected ? UIColor.red : UIColor.clear
+                    self.displayTheCurrentPageView.backgroundColor = self.isSelected ? UIColor.white : UIColor.clear
                     self.layoutIfNeeded()
                 }
             }
