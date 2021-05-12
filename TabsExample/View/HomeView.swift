@@ -13,7 +13,7 @@ class HomeView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25)
-        label.text = "TabsExample"
+        label.text = "範例"
         label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         label.textAlignment = NSTextAlignment.center
         return label
@@ -22,7 +22,6 @@ class HomeView: UIView {
     var tabsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
-        //左右cell的間隔
         layout.minimumInteritemSpacing = 1
         
         layout.scrollDirection = .vertical
