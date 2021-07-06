@@ -22,6 +22,7 @@ class HomeVC: UIViewController {
         view = homeView
         setCollectionView()
         setPageViewController()
+        childViewConfiguration()
     }
     
     // MARK: - Methods
@@ -46,6 +47,15 @@ class HomeVC: UIViewController {
         pageViewController.setViewControllers([viewControllers[pageViewIndex]], direction: .forward, animated: true)
 
     }
+    
+    func childViewConfiguration() {
+        guard let foodVC = viewControllers[0] as? FoodVC else {
+            return
+        }
+        
+        foodVC.delegate = self
+    }
+
     
     func pageViewToChange(index: Int) -> UIViewController? {
         
@@ -123,9 +133,22 @@ extension HomeVC: UIPageViewControllerDelegate,UIPageViewControllerDataSource {
                 
                 pageViewIndex = vc.view.tag
                 
+                
                 homeView.tabsCollectionView.selectItem(at: IndexPath(item: pageViewIndex, section: 0), animated: true, scrollPosition: .centeredVertically)
             }
         }
     }
     
+}
+
+//MARK: - PhotoTableViewControllerDelegate
+
+extension HomeVC: PhotoTableViewControllerDelegate {
+    func tableViewDidScroll(_ tableView: FoodVC, translation: CGFloat) {
+
+        self.homeView.topView.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(view)
+            make.top.equalTo(view.snp.topMargin)
+            make.height.equalTo(200-translation)
+        }    }
 }

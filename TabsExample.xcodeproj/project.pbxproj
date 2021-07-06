@@ -18,6 +18,7 @@
 		D9911B57264B740500B59D2F /* MovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9911B56264B740500B59D2F /* MovieVC.swift */; };
 		D9911B5B264B741D00B59D2F /* FoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9911B5A264B741D00B59D2F /* FoodVC.swift */; };
 		D9911B5E264B744100B59D2F /* MusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9911B5D264B744100B59D2F /* MusicVC.swift */; };
+		D9A617E0268C4AB4002852AE /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A617DF268C4AB3002852AE /* FoodView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D9911B56264B740500B59D2F /* MovieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVC.swift; sourceTree = "<group>"; };
 		D9911B5A264B741D00B59D2F /* FoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodVC.swift; sourceTree = "<group>"; };
 		D9911B5D264B744100B59D2F /* MusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicVC.swift; sourceTree = "<group>"; };
+		D9A617DF268C4AB3002852AE /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				D9911B44264ADB0000B59D2F /* HomeView.swift */,
+				D9A617DF268C4AB3002852AE /* FoodView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9A617E0268C4AB4002852AE /* FoodView.swift in Sources */,
 				D9911B32264AD99800B59D2F /* HomeVC.swift in Sources */,
 				D9911B4E264ADE8C00B59D2F /* TabsCollectionViewCell.swift in Sources */,
 				D9911B5E264B744100B59D2F /* MusicVC.swift in Sources */,

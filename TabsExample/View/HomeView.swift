@@ -9,14 +9,24 @@ import UIKit
 
 class HomeView: UIView {
     
+    
+    let fullScreenSize = UIScreen.main.bounds
+    
+    
     // MARK: - UIElement
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25)
-        label.text = "範例"
-        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        label.textAlignment = NSTextAlignment.center
-        return label
+//    let titleLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.systemFont(ofSize: 25)
+//        label.text = "範例"
+//        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//        label.textAlignment = NSTextAlignment.center
+//        return label
+//    }()
+    
+    let topView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemRed
+        return view
     }()
     
     var tabsCollectionView: UICollectionView = {
@@ -24,7 +34,7 @@ class HomeView: UIView {
         
         layout.minimumInteritemSpacing = 1
         
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         
         var cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
@@ -42,22 +52,24 @@ class HomeView: UIView {
     // MARK: - Autolayout
     
     func constraints() {
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.safeAreaLayoutGuide)
-            make.left.right.equalTo(self)
-            make.height.equalTo(50)
-        }
         
+        topView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.snp.topMargin)
+            make.left.right.equalTo(self)
+            make.height.equalTo(150)
+        }
+
         tabsCollectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(topView.snp.bottom)
             make.left.right.equalTo(self)
             make.height.equalTo(50)
         }
-        
+
         bottomView.snp.makeConstraints { (make) in
             make.top.equalTo(tabsCollectionView.snp.bottom)
             make.right.left.bottom.equalTo(self)
         }
+        
     }
     
     // MARK: - Init
@@ -66,8 +78,8 @@ class HomeView: UIView {
         super.init(frame: frame)
         backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         
-        
-        addSubview(titleLabel)
+        addSubview(topView)
+//        addSubview(titleView)
         addSubview(tabsCollectionView)
         addSubview(bottomView)
         constraints()
